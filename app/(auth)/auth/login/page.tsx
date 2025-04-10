@@ -1,5 +1,24 @@
-'use client'
+'use client';
+
+import { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+
+function LoginInner() {
+  const searchParams = useSearchParams();
+  const error = searchParams.get('error');
+
+  return (
+    <div className="text-2xl font-bold">
+      로그인 페이지
+      {error && <p className="text-red-500">에러: {error}</p>}
+    </div>
+  );
+}
 
 export default function LoginPage() {
-  return <h1 className="text-2xl font-bold">로그인 페이지</h1>;
+  return (
+    <Suspense fallback={<div>로딩 중...</div>}>
+      <LoginInner />
+    </Suspense>
+  );
 }
