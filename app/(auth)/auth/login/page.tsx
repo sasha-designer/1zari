@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 function LoginInner() {
   const searchParams = useSearchParams();
-  const error = searchParams.get('error');
+  const error = searchParams.get("error");
 
   return (
     <div className="text-2xl font-bold">
